@@ -17,6 +17,10 @@ class Bot(discord.Client):
         print ("ID: " + str(bot.user.id))
         responses.guild = bot.get_guild(cfg.SERVER_ID)
 
+    async def on_member_join(memberObject):
+        if memberObject.author.bot: return
+        await responses.addToQueue(messageObject.mentions[0])
+
     async def on_reaction_add(self, reactionObject, userObject):
         if userObject.bot: return
         await responses.parseReaction(reactionObject, userObject)
