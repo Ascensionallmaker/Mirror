@@ -1,6 +1,8 @@
-BOT_TOKEN = "NzcyOTU1MDg3OTY5NTgzMTI2.X6CMhQ.Jzi1UWPrayOhJ-fT8dwLQlBjGis"
+import os
 
-SERVER_ID = 354788241444175884
+BOT_TOKEN = os.environ.get("BOT_TOKEN")
+
+SERVER_ID = os.environ.get("SERVER_ID")
 
 ADMIN_IDS = []
 
