@@ -19,7 +19,7 @@ class Bot(discord.Client):
 
     async def on_member_join(memberObject):
         if memberObject.author.bot: return
-        await responses.addToQueue(messageObject.mentions[0])
+        await responses.addToQueue(memberObject)
 
     async def on_reaction_add(self, reactionObject, userObject):
         if userObject.bot: return

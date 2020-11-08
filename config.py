@@ -4,7 +4,7 @@ BOT_TOKEN = os.environ.get("BOT_TOKEN")
 
 SERVER_ID = os.environ.get("SERVER_ID")
 
-ADMIN_IDS = []
+ADMIN_IDS = [215912087115923459]
 
 
 
