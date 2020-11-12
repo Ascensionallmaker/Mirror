@@ -6,6 +6,8 @@ from responses import Responses
 
 
 
+intents = discord.Intents.default()
+intents.members = True
 responses = Responses()
 
 
@@ -17,8 +19,8 @@ class Bot(discord.Client):
         print ("ID: " + str(bot.user.id))
         responses.guild = bot.get_guild(cfg.SERVER_ID)
 
-    async def on_member_join(memberObject):
-        if memberObject.author.bot: return
+    async def on_member_join(self, memberObject):
+        if memberObject.bot: return
         await responses.addToQueue(memberObject)
 
     async def on_reaction_add(self, reactionObject, userObject):
@@ -33,5 +35,5 @@ class Bot(discord.Client):
 
 
 
-bot = Bot()
+bot = Bot(intents=intents)
 bot.run(cfg.BOT_TOKEN)
